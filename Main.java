@@ -9,10 +9,16 @@ public class Main {
 
         System.out.println("Let's declare the amount of products! \n");
 
-        System.out.print("How much (p name) do you have? \n");
+        System.out.print("Enter first product name: ");
+        String firstNameOfProduct = scanner.nextLine();
+
+        System.out.print("Enter second product name: ");
+        String secondNameOfProduct = scanner.nextLine();
+
+        System.out.print("How much "+ firstNameOfProduct + " do you have? \n");
         double firstAmount = scanner.nextDouble();
 
-        System.out.print("How much (p name) do you have? \n");
+        System.out.print("How much "+ secondNameOfProduct +" do you have? \n");
         double secondAmount = scanner.nextDouble();
 
         Products firstProduct = new Products();

@@ -25,6 +25,7 @@ me: products and main
 
 public class Products {
     private double amount;
+    private double price;
 
     public double getAmount() {
         return amount;
@@ -33,4 +34,13 @@ public class Products {
     public void setAmount(double newAmount) {
         this.amount = newAmount;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice (double newPrice){
+        this.price = newPrice;
+    }
+
 }
