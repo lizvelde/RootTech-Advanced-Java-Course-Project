@@ -1,7 +1,7 @@
 //Class (Store) containing categories (Carts) is implemented with a Deqeue
 public class Store<E> 
 {
-    private E[] array;
+    private E[] carts;
     
     private int front;
     private int numOfCarts;
