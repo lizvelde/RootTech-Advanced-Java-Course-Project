@@ -1,4 +1,4 @@
-//Class (Store) containing categories (Carts) is implemented with a Deqeue
+//Class (Store) containing categories (Carts) is implemented with a Queue
 public class Store<E> 
 {
     private E[] carts;
