@@ -2,7 +2,6 @@
 public class Store<E> 
 {
     private E[] carts;
-    
     private int frontIdx;
     private int numOfCarts;
 
