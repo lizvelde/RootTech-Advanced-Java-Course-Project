@@ -3,13 +3,13 @@ public class Store<E>
 {
     private E[] carts;
     
-    private int front;
+    private int frontIdx;
     private int numOfCarts;
 
     public Store()
     {
         carts = (E[]) new Object[5];
-        front = 0;
+        frontIdx = 0;
         numOfCarts = 0;
     }
 
@@ -29,7 +29,7 @@ public class Store<E>
 
     public void enqueue(E cart)
     {
-        int index = ((front + numOfCarts) % carts.length);
+        int index = ((frontIdx + numOfCarts) % carts.length);
         if(numOfCarts < carts.length)
         {
             carts[index] = cart;
@@ -39,9 +39,9 @@ public class Store<E>
 
     public E dequeue()
     {
-        E cartAtFront = carts[front];
-        array[front] = null;
-        front++;
+        E cartAtFront = carts[frontIdx];
+        array[frontIdx] = null;
+        frontIdx++;
         numOfCarts--;
         return cartAtFront;
 
@@ -49,6 +49,6 @@ public class Store<E>
 
     public E first()
     {
-        return carts[front];
+        return carts[frontIdx];
     }
 }
