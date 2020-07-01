@@ -1,123 +1,54 @@
 //Class (Store) containing categories (Carts) is implemented with a Deqeue
-public class Store<E>
+public class Store<E> 
 {
-    public static class Node<E>
-    {
-        private E cart;
-        private Node prev, next;
-
-        public Node(E cart, Node prev, Node next)
-        {
-            this.cart = cart;
-            this.prev = prev;
-            this.next = next;
-        }
-
-        public E getCart()
-        {
-            return cart;
-        }
-
-        public void setCart(E cart)
-        {
-            this.cart = cart;
-        }
-
-
-        public Node getPrev()
-        {
-            return prev;
-        }
-
-        public void setPrev(Node prev)
-        {
-            this.prev = prev;
-        }
-
-        public Node getNext()
-        {
-            return next;
-        }
-
-        public void setNext(Node next)
-        {
-            this.next = next;
-        }
-    }
-
-    private Node front;
-    private Node back;
+    private E[] array;
+    
+    private int front;
     private int numOfCarts;
 
     public Store()
     {
-        front = new Node(null, null, null);
-        back = new Node(null, front, null);
-        front.setNext(back);
+        carts = (E[]) new Object[5];
+        front = 0;
         numOfCarts = 0;
     }
 
-    public void addFirst(E e)
+    public int size()
     {
-        Node n = new Node(e, front, front.getNext());
-        Node next = front.getNext();
-        front.setNext(n);
-        next.setPrev(n);
-        numOfCarts+=1;
+        return numOfCarts;
     }
 
-    public void addLast(E e)
+    public boolean isEmpty()
     {
-        Node n = new Node(e, back.getPrev(),back);
-        Node prev = back.getPrev();
-        back.setPrev(n);
-        prev.setNext(n);
-        numOfCarts+=1;
-    }
-
-    public E removeFirst()
-    {
-        if(size > 0)
+        if(size() == 0)
         {
-            E val = (E) front.getNext().getCart();
-            Node n = front.getNext().getNext();
-            front.setNext(n);
-            n.setPrev(front);
-            numOfCarts-=1;
-            return val;
+            return true;
         }
-        return null;
+        return false;
     }
 
-    public E removeLast()
+    public void enqueue(E cart)
     {
-        if(size > 0)
+        int index = ((front + numOfCarts) % carts.length);
+        if(numOfCarts < carts.length)
         {
-            E val = (E) back.getPrev().getCart();
-            Node n = back.getPrev().getPrev();
-            back.setPrev(n);
-            n.setNext(back);
-            numOfCarts-=1;
-            return val;
+            carts[index] = cart;
+            numOfCarts++;
         }
-        return null;
     }
 
-    public E getFirst()
+    public E dequeue()
     {
-        if(size > 0)
-        {
-            return (E) front.getNext().getCart();
-        }
-        return null;
+        E cartAtFront = carts[front];
+        array[front] = null;
+        front++;
+        numOfCarts--;
+        return cartAtFront;
+
     }
 
-    public E getLast()
+    public E first()
     {
-        if(size > 0)
-        {
-            return (E) back.getPrev().getCart();
-        }
-        return null;
+        return carts[front];
     }
 }
