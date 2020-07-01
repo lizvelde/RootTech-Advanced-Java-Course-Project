@@ -24,7 +24,5 @@ public class Main {
         Products firstProduct = new Products();
         Products secondProduct = new Products();
 
-
-
     }    
 }
