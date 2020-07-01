@@ -13,21 +13,21 @@ public class Store<E>
         numOfCarts = 0;
     }
 
-    public int size()
+    public int lengthOfLine()
     {
         return numOfCarts;
     }
 
     public boolean isEmpty()
     {
-        if(size() == 0)
+        if(lengthOfLine() == 0)
         {
             return true;
         }
         return false;
     }
 
-    public void enqueue(E cart)
+    public void addCart(E cart)
     {
         int index = ((frontIdx + numOfCarts) % carts.length);
         if(numOfCarts < carts.length)
@@ -37,7 +37,7 @@ public class Store<E>
         }
     }
 
-    public E dequeue()
+    public E removeCart()
     {
         E cartAtFront = carts[frontIdx];
         array[frontIdx] = null;
