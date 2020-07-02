@@ -53,23 +53,21 @@ public class Store<E>
     
     public int findProduct(char p)
     {
-        boolean check = true;
-        while(check) 
+        for (int i = 0; i < carts.length; i++) 
         {
-            for (int i = 0; i < carts.length; i++) 
+            if (carts[i].size()>0) 
             {
-                if (carts[i] == null) 
+                pr = charts[i].next();
+                while(pr)
                 {
-                    i = carts.length;
-                } else 
-                    {
-                    if (carts[i].productName().equals(p)) 
+                    if (pr.productName().equals(p)) 
                     {
                         return i;
                     }
+                    else
+                        pr = charts[i].next()
                 }
             }
-            check = false;
         }
         return -1;
     }
