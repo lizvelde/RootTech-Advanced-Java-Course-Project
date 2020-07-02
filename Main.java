@@ -1,11 +1,24 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         System.out.println ("(Project Name)");
 
-        Scanner scanner = new Scanner (System.in);
+        // initialize
+        Products firstProduct = new Products();
+        Products secondProduct = new Products();
+
+        // set the variables within
+        firstProduct.setProductName("FirstProductName");
+        firstProduct.setPrice(9.0);
+
+        secondProduct.setProductName("SecondProductName");
+        secondProduct.setPrice(8.0);
+
+
+
+        /*Scanner scanner = new Scanner (System.in);
 
         System.out.println("Let's declare the amount of products! \n");
 
@@ -19,10 +32,9 @@ public class Main {
         double firstAmount = scanner.nextDouble();
 
         System.out.print("How much "+ secondNameOfProduct +" do you have? \n");
-        double secondAmount = scanner.nextDouble();
+        double secondAmount = scanner.nextDouble(); */
 
-        Products firstProduct = new Products();
-        Products secondProduct = new Products();
+        
 
     }    
 }
