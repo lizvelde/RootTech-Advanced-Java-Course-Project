@@ -1,21 +1,28 @@
-package com.company;
-
 public class Cart {
     private static class Node{
         private Products element;
-        private Node next;
-        public Node (Products p, Node n){
-            element = p;
+        private Node next, prev;
+        public Node (Products product, Node p, Node n){
+            element = product;
+            prev = p;
             next = n;
 
         }
 
-        public Products getCost(){
+        public Products getElement(){
             return element;
         }
 
-        public void setCost(Products p){
-            element = p;
+        public void setElement(Products product){
+            element = product;
+        }
+
+        public Node getPrev(){
+            return prev;
+        }
+
+        public void setPrev(Node prev){
+            this.prev = prev;
         }
 
         public Node getNext(){
@@ -26,35 +33,69 @@ public class Cart {
             this.next = next;
         }
     }
-    private Node head, tail;
+    private Node header, trailer;
     private int size;
     private int amount;
 
     public Cart(){
-        head = null;
-        tail = null;
+        header = new Node(null, null, null);
+        trailer = new Node(null, null, null);
+        header.setNext(trailer);
         size = 0;
     }
 
-    public Node getFirst(){
-        if(size == 0){
-            return null;
+    public int getAmount(Product product){
+        Node n = header;
+        int amount = 0;
+        while(n != null){
+            if(n.getElement().getName() == product.productName()){
+                amount++;
+            }
         }
-        return head;
-    }
-
-    public Node getLast(){
-        if(size == 0){
-            return null;
-        }
-        return tail;
-    }
-
-    public int getAmount(){
         return amount;
     }
 
     public void setAmount (int amount){
         this.amount = amount;
     }
+
+    public int size(){
+        return size;
+    }
+
+    public void addProducts(int amount, Products product){
+        for(int i = 0; i <= amount; i++){
+            Node n = header.getNext();
+            Node newItem = new Node (product, header, header.getNext());
+            header.setNext(newItem);
+            n.setPrev(newItem);
+            size++;
+        }
+    }
+
+    public void removeProducts(int amount, Products product){
+        Node n = header.getNext();
+        int count = 0;
+        while (count <= amount){
+            if(n.getElement() == product){
+                Node temp = n;
+                n = null;
+                n.getPrev().setNext(n.getNext());
+                n.getNext().setPrev(temp.getPrev());
+                count++;
+                size--;
+            }
+        }
+    }
+
+    public double totalCost(){
+        Node n = header;
+        double total = 0;
+        while(n != null){
+            total += n.getElement().getPrice();
+            n = n.getNext();
+        }
+        return total;
+    }
+
 }
