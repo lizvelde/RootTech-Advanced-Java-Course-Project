@@ -50,4 +50,27 @@ public class Store<E>
     {
         return carts[frontIdx];
     }
+    
+    public int findProduct(char p)
+    {
+        boolean check = true;
+        while(check) 
+        {
+            for (int i = 0; i < carts.length; i++) 
+            {
+                if (carts[i] == null) 
+                {
+                    i = carts.length;
+                } else 
+                    {
+                    if (carts[i].productName().equals(p)) 
+                    {
+                        return i;
+                    }
+                }
+            }
+            check = false;
+        }
+        return -1;
+    }
 }
