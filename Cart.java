@@ -44,11 +44,11 @@ public class Cart {
         size = 0;
     }
 
-    public int getAmount(Product product){
+    public int getAmount(Products product){
         Node n = header;
         int amount = 0;
         while(n != null){
-            if(n.getElement().getName() == product.productName()){
+            if(n.getElement().getProductName() == product.productName()){
                 amount++;
             }
         }
@@ -73,7 +73,7 @@ public class Cart {
         }
     }
 
-    public void removeProducts(int amount, Products product){
+    public void removeProducts(){
         Node n = header.getNext();
         int count = 0;
         while (count <= amount){
@@ -97,5 +97,11 @@ public class Cart {
         }
         return total;
     }
+
+	public static void removeProducts(int i, String string) {
+	}
+
+	public static void secondProductRemove(int i, String string) {
+	}
 
 }

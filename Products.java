@@ -11,7 +11,7 @@ public class Products {
     private String productName;
     private double price;
 
-    public String productName() {
+    public String getProductName() {
         return productName;
     }
 
