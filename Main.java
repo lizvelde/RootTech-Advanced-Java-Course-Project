@@ -17,6 +17,7 @@ public class Main {
         secondProduct.setPrice(8.0);
 
 
+        
 
         /*Scanner scanner = new Scanner (System.in);
 
