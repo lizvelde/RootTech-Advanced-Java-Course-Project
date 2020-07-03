@@ -102,10 +102,4 @@ public class Cart {
         return total;
     }
 
-	public static void removeProducts(int i, String string) {
-	}
-
-	public static void secondProductRemove(int i, String string) {
-	}
-
 }
