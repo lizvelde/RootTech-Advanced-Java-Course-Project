@@ -3,21 +3,19 @@ public class Store<E>
 {
     private E[] carts;
     private int frontIdx;
-    private int numOfCarts;
+    public static int numOfCarts;
 
-    public Store()
-    {
+    public Store() {
         carts = (E[]) new Object[5];
         frontIdx = 0;
         numOfCarts = 0;
     }
 
-    public int lengthOfLine()
-    {
+    public static int lengthOfLine() {
         return numOfCarts;
     }
 
-    public boolean isEmpty()
+    public static boolean isEmpty()
     {
         if(lengthOfLine() == 0)
         {
@@ -71,4 +69,14 @@ public class Store<E>
         }
         return -1;
     }
+
+	public static char[] addCart() {
+		return null;
+	}
+
+	public static char[] FirstProductName() {
+		return null;
+	}
+
+
 }
