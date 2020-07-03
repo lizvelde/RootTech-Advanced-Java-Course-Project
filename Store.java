@@ -53,7 +53,7 @@ public class Store<E>
     
     public int findProduct(char p)
     {
-        for (int i = 0; i < carts.length; i++) 
+        for (int i = frontIdx; i < carts.length+frontIdx; i++) 
         {
             if (carts[i].size()>0) 
             {
