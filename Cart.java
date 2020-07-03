@@ -45,12 +45,13 @@ public class Cart {
     }
 
     public int getAmount(Products product){
-        Node n = header;
+        Node n = header.getNext();
         int amount = 0;
         while(n != null){
             if(n.getElement().getProductName() == product.productName()){
                 amount++;
             }
+		n = n.getNext();
         }
         return amount;
     }
@@ -89,7 +90,7 @@ public class Cart {
     }
 
     public double totalCost(){
-        Node n = header;
+        Node n = header.getNext();
         double total = 0;
         while(n != null){
             total += n.getElement().getPrice();
