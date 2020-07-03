@@ -48,7 +48,7 @@ public class Cart {
         Node n = header.getNext();
         int amount = 0;
         while(n != null){
-            if(n.getElement().getProductName() == product.productName()){
+            if(n.getElement().getProductName() == product.getProductName()) {
                 amount++;
             }
 		n = n.getNext();
