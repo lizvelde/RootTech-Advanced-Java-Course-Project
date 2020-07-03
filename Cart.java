@@ -63,6 +63,13 @@ public class Cart {
     public int size(){
         return size;
     }
+	
+    public boolean isEmpty(){
+	if(size() == 0){
+	    return true;
+	}
+	return false;
+    }
 
     public void addProducts(int amount, Products product){
         for(int i = 0; i <= amount; i++){
