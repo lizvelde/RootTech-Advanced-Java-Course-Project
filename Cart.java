@@ -56,11 +56,7 @@ public class Cart {
         return amount;
     }
 
-    public void setAmount (int amount){
-        this.amount = amount;
-    }
-
-    public int size(){
+    public int totalProducts(){
         return size;
     }
 	
@@ -81,7 +77,7 @@ public class Cart {
         }
     }
 
-    public void removeProducts(){
+    public void removeProducts(int amount, Products product){
         Node n = header.getNext();
         int count = 0;
         while (count <= amount){
@@ -105,11 +101,5 @@ public class Cart {
         }
         return total;
     }
-
-	public static void removeProducts(int i, String string) {
-	}
-
-	public static void secondProductRemove(int i, String string) {
-	}
 
 }
